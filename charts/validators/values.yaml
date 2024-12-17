@@ -180,8 +180,6 @@ keyManagerApi:
     name: "apitoken"
   # Key containing the API auth token
     publicKey: "token"
-  # Key containing the corresponding secret key - Lighthouse
-    privateKey: "secret"
   flags:
     prysm:
       - "--web"

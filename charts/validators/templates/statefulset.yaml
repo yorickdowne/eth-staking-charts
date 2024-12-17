@@ -171,9 +171,6 @@ spec:
             - name: apitoken
               mountPath: /data/lighthouse/validators/api-token.txt
               subPath: {{ $root.Values.keyManagerApi.tokenSecret.publicKey }}
-            - name: apitoken
-              mountPath: /data/lighthouse/validators/.secp-sk
-              subPath: {{ $root.Values.keyManagerApi.tokenSecret.privateKey }}
             {{- else if eq $root.Values.type "teku" }}
             - name: apitoken
               mountPath: /data/validator/key-manager/validator-api-bearer

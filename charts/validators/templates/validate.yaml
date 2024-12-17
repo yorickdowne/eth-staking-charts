@@ -30,20 +30,7 @@ spec:
           exit 1
         fi
 
-        {{- if .Values.keyManagerApi.tokenSecret.privateKey }}
-        if [ ! -f /etc/secrets/secret ]; then
-          echo "Error: Secret key {{ .Values.keyManagerApi.tokenSecret.privateKey }} not found!"
-          exit 1
-        fi
-        {{- end }}
-
     volumeMounts:
-    {{- if .Values.keyManagerApi.tokenSecret.privateKey }}
-    - name: secret-volume
-      mountPath: /etc/secrets/secret
-      subPath: {{ .Values.keyManagerApi.tokenSecret.privateKey }}
-      readOnly: true
-    {{- end }}
     - name: secret-volume
       mountPath: /etc/secrets/token
       subPath: {{ .Values.keyManagerApi.tokenSecret.publicKey }}
